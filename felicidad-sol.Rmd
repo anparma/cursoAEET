@@ -5,13 +5,12 @@ date: "28 de marzo de 2019"
 output: word_document
 editor_options: 
 bibliography: references.bib
-csl: ecology-letters.csl
 chunk_output_type: console
   
 ---
 
 ##INTRODUCTION
-It is well-known that climate influences people happiness [@Rezende_2007]
+It is well-known that climate influences people happiness
 
 ##METHOD
 
@@ -36,7 +35,7 @@ We found that happiness is positively related to sunshine hours (slope = `r roun
 
 ```{r, echo=FALSE}
 library(visreg)
-visreg(model)
+visreg(model, gg =TRUE)
 ```
 
 ```{r}
