@@ -1,0 +1,59 @@
+---
+title: "Es bueno el solecito para la felicidad?"
+author: "Maria Anton-Pardo"
+date: "28 de marzo de 2019"
+output: word_document
+editor_options: 
+bibliography: references.bib
+csl: ecology-letters.csl
+chunk_output_type: console
+  
+---
+
+##INTRODUCTION
+It is well-known that climate influences people happiness [@Rezende_2007]
+
+##METHOD
+
+```{r}
+datos <- read.table("data.txt", header =TRUE)
+datos <- datos [-12,]
+```
+
+```{r}
+model <- lm(happiness ~sunshine, data = datos)
+```
+
+We interviewed `r nrow(datos)` people and fitted a linear model.
+
+$$
+y = \alpha + \beta x
+
+$$
+##RESULTS
+
+We found that happiness is positively related to sunshine hours (slope = `r round(coef(model)[2], digits = 2)`).
+
+```{r, echo=FALSE}
+library(visreg)
+visreg(model)
+```
+
+```{r}
+library(xtable)
+library(knitr)
+kable(xtable(model))
+```
+
+##DISCUSSION
+
+Sunshine is good for happiness .
+
+##REFERENCES
+
+
+
+
+
+
+
